@@ -3,7 +3,7 @@
 > В этом примере запрос Where не материализуется. Вызов метода Where просто возвращает объект, реализующий интерфейс IEnumerable. Методы GetEnumerator и MoveNext будут вызываться только при итерации по коллекции в цикле foreach.
 <details>
 <summary>Нематериализованный запрос</summary>
-```csharp
+<p>```csharp
 public void NotMaterializedQueryTest()
 {
   var elements = Enumerable.Range(0, 50000000);
@@ -25,11 +25,11 @@ public void NotMaterializedQueryTest()
     …
   }
 }
-```
+```</p>
 </details>
 <details>
   <summary>Материализованный запрос</summary>
-```csharp
+<p>```csharp
 public void MaterializedQueryTest()
 {
   var elements = Enumerable.Range(0, 50000000);
@@ -38,7 +38,7 @@ public void MaterializedQueryTest()
 
   //остальной код такой же
 }
-```
+```</p>
 </details>
 |                   Method |       Mean |
 |:------------------------:|:----------:|
