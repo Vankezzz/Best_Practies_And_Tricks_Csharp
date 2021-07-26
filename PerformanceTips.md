@@ -3,27 +3,27 @@
 
 |            NotMaterializedQuery              	|						MaterializedQuery                       |
 |:---------------------------------------------:|:-------------------------------------------------------------:|
-|public void NotMaterializedQueryTest()         |public void MaterializedQueryTest()                            |
-|{                                              |{                                                              |
-|  var elements = Enumerable.Range(0, 50000000);|  var elements = Enumerable.Range(0, 50000000);                |
-|  var filtered =                               |  var filtered = elements.Where(e => e % 100000 == 0).ToList();|
-|    elements.Where(e => e % 100000 == 0);      |  //остальной код такой же										|
-|                                               |}                                                              |
-|  foreach (var e in filtered)                  |                                                               |
-|  {                                            |                                                               |
-|    …                                          |                                                               |
-|  }                                            |                                                               |
-|                                               |                                                               |
-|  foreach (var e in filtered)                  |                                                               |
-|  {                                            |                                                               |
-|    …                                          |                                                               |
-|  }                                            |                                                               |
-|                                               |                                                               |
-|  foreach (var e in filtered)                  |                                                               |
-|  {                                            |                                                               |
-|    …                                          |                                                               |
-|  }                                            |                                                               |
-|}												|                                                               |
+|public void NotMaterializedQueryTest()         |public void MaterializedQueryTest()                            
+{                                              	 {                                                              
+  var elements = Enumerable.Range(0, 50000000);	   var elements = Enumerable.Range(0, 50000000);                
+  var filtered =                               	   var filtered = elements.Where(e => e % 100000 == 0).ToList();
+    elements.Where(e => e % 100000 == 0);      	   //остальной код такой же										
+												 }                                                              
+  foreach (var e in filtered)                  	                                                                
+  {                                            	                                                                
+    …                                          	                                                                
+  }                                            	                                                                
+												 																
+  foreach (var e in filtered)                  	                                                                
+  {                                            	                                                                
+    …                                          	                                                                
+  }                                            	                                                                
+												 																
+  foreach (var e in filtered)                  	                                                                
+  {                                            	                                                                
+    …                                          	                                                                
+  }                                            	                                                                
+}												 	                                                             
 |:---------------------------------------------:|:-------------------------------------------------------------:|
 |											TestSpeed(Mean)			 											|
 |:---------------------------------------------:|:-------------------------------------------------------------:|
