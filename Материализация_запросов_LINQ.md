@@ -2,7 +2,7 @@
 > При работе с LINQ пользуемся IEnumerable или IQueryable и у нас есть два пути: работать лениво с коллекциями или материализовать (ToList, ToArray)
 > В этом примере запрос Where не материализуется. Вызов метода Where просто возвращает объект, реализующий интерфейс IEnumerable. Методы GetEnumerator и MoveNext будут вызываться только при итерации по коллекции в цикле foreach.
 
-* Нематериализованный запрос
+Нематериализованный запрос
 
 ```csharp
 public void NotMaterializedQueryTest()
@@ -28,7 +28,7 @@ public void NotMaterializedQueryTest()
 }
 ```
 
-* Материализованный запрос
+Материализованный запрос
 
 ```csharp
 public void MaterializedQueryTest()
