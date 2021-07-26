@@ -1,9 +1,8 @@
 1. Материализация запросов LINQ:
 > При работе с LINQ пользуемся IEnumerable или IQueryable и у нас есть два пути: работать лениво с коллекциями или материализовать (ToList, ToArray)
-
-|            NotMaterializedQuery              	|						MaterializedQuery                       |
-|:---------------------------------------------:|:-------------------------------------------------------------:|
-|```public void NotMaterializedQueryTest()
+> В этом примере запрос Where не материализуется. Вызов метода Where просто возвращает объект, реализующий интерфейс IEnumerable. Методы GetEnumerator и MoveNext будут вызываться только при итерации по коллекции в цикле foreach.
+```
+public void NotMaterializedQueryTest()
 {
   var elements = Enumerable.Range(0, 50000000);
   var filtered = 
@@ -23,14 +22,20 @@
   {
     …
   }
-}```|```public void MaterializedQueryTest()
+}
+```
+```
+public void MaterializedQueryTest()
 {
   var elements = Enumerable.Range(0, 50000000);
   var filtered = 
     elements.Where(e => e % 100000 == 0).ToList();
 
   //остальной код такой же
-}```										 	                                                             
-|											TestSpeed(Mean)			 											|
-|**1,299.6 ms**									|													**495.5 ms**|
-    
+}
+```
+|                   Method |       Mean |
+|:------------------------:|:----------:|
+| NotMaterializedQueryTest | 1,299.6 ms |
+|    MaterializedQueryTest |   495.5 ms |
+
