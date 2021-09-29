@@ -1,0 +1,4 @@
+Source: https://docs.microsoft.com/en-us/ef/core/dbcontext-configuration/
+
+1. services.AddDbContext<ApplicationDbContext> - registers a DbContext subclass called ApplicationDbContext as a SCOPED
+2. Entity Framework Core does not support multiple parallel operations being run on the same DbContext instance
